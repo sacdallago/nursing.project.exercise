@@ -1,14 +1,35 @@
 <head>
-  <title>nursing-project</title>
+	<title>Nursing project</title>
 </head>
 
 <body>
-  <h1>Welcome to Meteor!</h1>
-
-  {{> hello}}
+	<ul>
+		<li><a href="{{pathFor 'home'}}">Home</a></li>
+		<li><a href="{{pathFor 'noteList'}}">Notes</a></li>
+		<li><a href="{{pathFor 'newNote'}}">New note</a></li>
+	</ul>
 </body>
 
-<template name="hello">
-  <button>Click Me</button>
-  <p>You've pressed the button {{counter}} times.</p>
+
+<template name="home">
+	Number of notes in the system: {{count}}.
+</template>
+
+<template name="noteList">
+Notes will be listed here.
+<ul>
+	{{#each notes}}
+		<li>{{> note}}</li>
+	{{/each}}
+</ul>
+</template>
+
+<template name="note">
+	<li>{{text}}</li>
+</template>
+
+<template name="newNote">
+  <form class="new-note">
+    <input type="text" name="note" placeholder="Type to add new notes" />
+  </form>
 </template>

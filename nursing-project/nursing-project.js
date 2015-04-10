@@ -1,23 +1,40 @@
+Router.map( function () {
+	this.route('noteList',{
+		path: '/notes'
+	});
+	this.route('home', {
+		path: '/'
+	});
+	this.route('newNote');
+});
+
+Notes = new Mongo.Collection('notes');
+
 if (Meteor.isClient) {
-  // counter starts at 0
-  Session.setDefault('counter', 0);
+	Template.noteList.helpers({
+		notes: function() {
+			return Notes.find({}, {sort: {createdAt: -1}});
+		}
+	});
 
-  Template.hello.helpers({
-    counter: function () {
-      return Session.get('counter');
-    }
-  });
+	Template.home.helpers({
+		count: function(){
+		return Notes.find({}).count();
+	}
+	});
+	Template.newNote.events({
+		"submit .new-note": function (event){
+			alert("note submitted");
+			var note = event.target.text.value;
 
-  Template.hello.events({
-    'click button': function () {
-      // increment the counter when button is clicked
-      Session.set('counter', Session.get('counter') + 1);
-    }
-  });
-}
+			Notes.insert({
+				text: note,
+				createdAt: new Date()
+			});
 
-if (Meteor.isServer) {
-  Meteor.startup(function () {
-    // code to run on server at startup
-  });
+			event.target.text.value="";
+
+			return false;
+		}
+	});
 }
