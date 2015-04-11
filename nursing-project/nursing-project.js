@@ -1,3 +1,5 @@
+Notes = new Mongo.Collection("notes");
+
 Router.map( function () {
 	this.route('noteList',{
 		path: '/notes'
@@ -8,7 +10,7 @@ Router.map( function () {
 	this.route('newNote');
 });
 
-Notes = new Mongo.Collection('notes');
+
 
 if (Meteor.isClient) {
 	Template.noteList.helpers({
@@ -26,7 +28,7 @@ if (Meteor.isClient) {
 		"submit .new-note": function (event){
 			alert("note submitted");
 			var note = event.target.text.value;
-
+			console.log("Entered value:"+note);
 			Notes.insert({
 				text: note,
 				createdAt: new Date()
