@@ -4,33 +4,48 @@
 
 <body>
 	<ul>
-		<li><a href="{{pathFor 'home'}}">Home</a></li>
-		<li><a href="{{pathFor 'noteList'}}">Notes</a></li>
-		<li><a href="{{pathFor 'newNote'}}">New note</a></li>
-		<li><button class="button" name="pop-button">Add a note with pop-up</button></li>
+		<div id="menuStyle">
+		<menu>
+		<menuitem><a href="{{pathFor 'home'}}">Home</a></menuitem>
+		<menuitem><a href="{{pathFor 'noteList'}}">Notes</a></menuitem>
+		<menuitem><a href="{{pathFor 'newNote'}}">New note</a></menuitem>
+		<menuitem><button class="button" name="pop-button">Add a note with pop-up</button></menuitem>
+		</menu>
+		</div>
 	</ul>
+	<br>
 </body>
 
 
 <template name="home">
-	Number of notes in the system: {{count}}.
+	<div id="pagesText">
+		Number of notes in the system: <em>{{count}}</em>
+	</div>
 </template>
 
 <template name="noteList">
-Notes will be listed here.
-<ul>
-	{{#each notes}}
-		<li>{{> note}} </li> <button class="delete" style="float: right;">&times;</button> 
-	{{/each}}
-</ul>
+	<div id="pagesText">
+		Notes will be listed here.
+		<ul>
+			<br>
+			{{#each notes}}
+			<div id="noteFrame">
+				<li>{{> note}} </li> <button class="delete" style="float: right;">&times;</button> 
+				<br>
+			</div>
+			{{/each}}
+		</ul>
+	</div>
 </template>
 
 <template name="note">
-	<li>{{text}}</li>
+		<li>{{text}}</li>
 </template>
 
 <template name="newNote">
+	<div id="pagesText">
   <form class="new-note">
     <input type="text" name="note" placeholder="Type to add new notes" />
   </form>
+</div>
 </template>

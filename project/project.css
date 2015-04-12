@@ -1,1 +1,84 @@
 /* CSS declarations go here */
+@font-face{
+	font-family: bebas-neue;
+	src:url("/fonts/BebasNeue.otf");
+}
+template{
+	font-family:"Trebuchet MS", Helvetica, sans-serif;
+}
+html{
+	width:100%;
+}
+body{
+	width:100%;
+	margin:auto;
+	background:#bbbbbb;
+}
+ul{
+    margin: 0;
+    padding: 0;
+	width:100%;
+	margin:auto;
+}
+menu {
+	width:100%;
+	margin:auto;
+	padding-left:auto;
+	border:auto;
+	font-family: bebas-neue;
+	font-size: 25px;
+	display: block;
+	position: relative;
+	background-color: #000000;
+	background-position: top;
+}
+menuitem{
+	font-family:bebas-neue;
+	size:30px;
+	color:#ffffff;
+	margin:10px;
+}
+li{
+	display:inline;
+	float:left;
+}
+a:link, a:visited {
+    color: #FFFFFF;
+    text-align: center;
+    padding: 4px;
+    text-decoration: none;
+}
+a:hover, a:active {
+    background-color: #404040;
+    padding:4px;
+}
+em{
+	font-size:20px;
+	font-weight:bolder;
+}
+#pagesText{
+	font-family:"Trebuchet MS", Helvetica, sans-serif;
+	color:#000000;
+	margin-left:50px;
+	margin-right:50px;
+	background:#eeeeee;
+	padding-top:20px;
+	padding-left:30px;
+	padding-right:30px;
+	padding-bottom:50px;
+	border-radius: 0.2857rem;
+	border: medium none;
+	box-sizing:border-box;
+}
+#noteFrame{
+	background-color:#ffffff;
+	position:relative;
+	margin: 1rem 0px;
+	border-radius: 0.2857rem;
+	border: medium none;
+	box-sizing:border-box;
+}
+#menuStyle{
+	list-style-type: none;
+	background-color:#000000;
+}
