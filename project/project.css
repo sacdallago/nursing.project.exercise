@@ -74,9 +74,11 @@ em{
 	background-color:#ffffff;
 	position:relative;
 	margin: 1rem 0px;
+	padding:1em;
 	border-radius: 0.2857rem;
 	border: medium none;
 	box-sizing:border-box;
+	overflow:auto;
 }
 #menuStyle{
 	list-style-type: none;
