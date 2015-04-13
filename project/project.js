@@ -15,8 +15,9 @@ Router.map( function () {
 if (Meteor.isClient) {
   Template.body.events({
     "click .button": function(event){
-      alert("Boo! Jk I'm currently useless");
       var note_popup = window.prompt("Enter your note", "");
+      if (note_popup==null)
+        return
       Notes.insert({
         text: note_popup,
         createdAt: new Date()
@@ -45,17 +46,16 @@ if (Meteor.isClient) {
   Template.newNote.events({
     "submit .new-note": function (event){
       event.preventDefault();
-      alert("note submitted");
+      
       var note = event.target.note.value;
-      alert("var note being assigned");
+
       Notes.insert({
         text: note,
         createdAt: new Date()
       });
-      alert("note inserted");
 
       event.target.note.value="";
-
+      alert("Note created");
       return false;
     }
   });
