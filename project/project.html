@@ -19,7 +19,8 @@
 
 <template name="home">
 	<div id="pagesText">
-		Number of notes in the system: <em>{{count}}</em>
+		  <em><hr>{{count}}<br></em>
+		 Notes on the system <hr>
 	</div>
 </template>
 
@@ -30,7 +31,7 @@
 			<br>
 			{{#each notes}}
 			<div id="noteFrame">
-				<li>{{> note}}</li> <button class="delete" style="float: right;">&times;</button> 
+				<li>{{> note}} </li> <button class="delete" style="float: right;">&times;</button> 
 				<br>
 			</div>
 			{{/each}}
@@ -39,7 +40,7 @@
 </template>
 
 <template name="note">
-		<li>{{text}} </li>
+		<li>{{text}}</li>
 </template>
 
 <template name="newNote">
